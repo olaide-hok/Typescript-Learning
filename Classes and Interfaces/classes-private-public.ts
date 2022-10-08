@@ -1,3 +1,5 @@
+// The 'private' when assigned or used means the keyword is only accessible in side the class as against the 'public' keyword. The 'public' is the default modifier.
+
 class Department {
   public name: string;
   private employees: string[] = [];
@@ -20,10 +22,14 @@ class Department {
   }
 }
 
-const accounting = new Department("Accounting");
+const accounting =      Department("Accounting");
 
 accounting.addEmployee("Max");
 accounting.addEmployee("Manu");
+
+// accounting.employee[2] = "Anna" is not allowed due to the private modifier added to employee property.
+
+// Private and public method modifiers are also possible in classes.
 
 accounting.describe();
 accounting.name = "NEW NAME";
