@@ -1,11 +1,8 @@
 class Department {
-    // private readonly id: string;
-    // private name: string;
+
     private employees: string[] = [];
   
     constructor(private readonly id: string, public name: string) {
-      // this.id = id;
-      // this.name = n;
     }
   
     describe(this: Department) {
@@ -14,7 +11,6 @@ class Department {
   
     addEmployee(employee: string) {
       // validation etc
-      // this.id = 'd2';
       this.employees.push(employee);
     }
   
@@ -51,8 +47,6 @@ class Department {
   it.addEmployee('Max');
   it.addEmployee('Manu');
   
-  // it.employees[2] = 'Anna';
-  
   it.describe();
   it.name = 'NEW NAME';
   it.printEmployeeInformation();
@@ -65,6 +59,3 @@ class Department {
   
   accounting.printReports();
   
-  // const accountingCopy = { name: 'DUMMY', describe: accounting.describe };
-  
-  // accountingCopy.describe();
