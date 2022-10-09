@@ -1,11 +1,8 @@
 class Department {
-    private readonly id: string;
-    private name: string;
     private employees: string[] = [];
-  
+
+    // The readonly modifier exists only in Typescript. It prevents writing to a property after initialization
     constructor(private readonly id: string, public name: string) {
-      this.id = id;
-      this.name = n;
     }
   
     describe(this: Department) {
@@ -14,7 +11,7 @@ class Department {
   
     addEmployee(employee: string) {
       // validation etc
-      this.id = 'd2';
+      // this.id = 'd2'; this is not possible because of the readonly modifier
       this.employees.push(employee);
     }
   
