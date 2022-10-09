@@ -1,3 +1,6 @@
+// private modifier are only accessible only inside the base class that they are definded and not the inheriting class that extends the base class.
+
+// The 'protected'  modifier unlike private allows for inheritance in extendings classes. 
 class Department {
     protected employees: string[] = [];
   
@@ -36,7 +39,9 @@ class Department {
       if (name === 'Max') {
         return;
       }
-      this.employees.push(name);
+      this.employees.push(name); // the protected modifier allows this to be possible
+
+      //method from the base class can be overridden by the extending class.
     }
   
     addReport(text: string) {
