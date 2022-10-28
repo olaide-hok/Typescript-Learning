@@ -1,12 +1,12 @@
 
-class DataStorage {
-    private data = [];
+class DataStorage<T> {
+    private data: T[] = [];
 
-    addItem(item) {
+    addItem(item: T) {
         this.data.push(item);
     }
 
-    removeItem(item) {
+    removeItem(item: T) {
         this.data.splice(this.data.indexOf(item), 1)
     }
 
@@ -14,3 +14,10 @@ class DataStorage {
         return [...this.data];
     }
 }
+
+const textStorage = new DataStorage<string>()
+textStorage.addItem('Max');
+textStorage.addItem('Manu');
+textStorage.addItem('Banana')
+textStorage.removeItem('Max');
+console.log(textStorage.getItems());
