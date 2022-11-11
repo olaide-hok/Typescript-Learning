@@ -3,11 +3,6 @@
  * If a decorator is added to an Accessor, it recieves three arguments, the first is the target property, the second is the name of the member i.e.accessor, the third is the property descriptor.
  */
 
-function Log1(target: any, propertyName: string | Symbol) {
-    console.log('Property decorator!');
-    console.log(target, propertyName);   
-}
-
 const Log2 = (target: any, name: string, descriptor: PropertyDescriptor) => {
     console.log('Accessor decorator!');
     console.log(target);
