@@ -17,17 +17,29 @@ class Project {
 
 // Project State Management
 
-// Custom type for Listeners
-type Listener = (items: Project[]) => void
+// Generic Custom type for Listeners
+type Listener<T> = (items: T[]) => void
 
-class ProjectState {
-    private listeners: any[] = [] // An array of function references.
-    private projects: Project[] = []
-    private static instance: ProjectState;
+// Reusable State Class
+class State<T> {
+    protected listeners: Listener<T>[] = [] // An array of function references.
+    // 'protected' keyword is another access modifier similar to 'private' but also allows for access in inheriting classes.
+
+    addListeners(listenerFn: Listener<T>) {
+        this.listeners.push(listenerFn)
+    }
+
+} 
+
+
+class ProjectState extends State<Project> {
 
     private constructor() {
-
+        super()
     }
+
+    private projects: Project[] = []
+    private static instance: ProjectState;
 
     static getInstance() {
         if (this.instance) {
@@ -35,10 +47,6 @@ class ProjectState {
         }
         this.instance = new ProjectState()
         return this.instance
-    }
-
-    addListeners(listenerFn: Listener) {
-        this.listeners.push(listenerFn)
     }
 
     addProject(title: string, description: string, numOfPeople: number) {
